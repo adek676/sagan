@@ -2,6 +2,7 @@ package sagan.blog.support;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sagan.blog.Post;
@@ -116,7 +117,7 @@ class BlogAdminController {
         }
     }
 
-    @RequestMapping(value = "/{postId:[0-9]+}{slug:.*}/edit", method = PUT)
+    @RequestMapping(value = "/{postId:[0-9]+}{slug:.*}/edit", method = POST)
     public String updatePost(@PathVariable Long postId, @Valid PostForm postForm, BindingResult bindingResult,
                              Model model) {
         Post post = service.getPost(postId);
