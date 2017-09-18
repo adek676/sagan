@@ -7,7 +7,7 @@
     <form layout:fragment="post-form">
         <div class="row-fluid">
             <div class="span8 blog-post--form">
-                <!-- <input type="hidden" name="_method" value="PUT" th:if="${edit}" /> -->
+                <input type="hidden" name="_method" value="PUT" th:if="${edit}" />
                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 
                 <div class="control-group" th:classappend="(${#fields.hasErrors('title')}? ' error')">

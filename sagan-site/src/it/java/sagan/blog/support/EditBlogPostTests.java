@@ -88,7 +88,7 @@ public class EditBlogPostTests extends AbstractIntegrationTests {
 
     @Test
     public void updateDoesNotPersistInvalidData() throws Exception {
-        MockHttpServletRequestBuilder editPostRequest = post("/admin/blog/" + post.getAdminSlug() + "/edit");
+        MockHttpServletRequestBuilder editPostRequest = put("/admin/blog/" + post.getAdminSlug() + "/edit");
         editPostRequest.param("title", "");
         editPostRequest.param("content", "");
         editPostRequest.param("category", PostCategory.NEWS_AND_EVENTS.name());
@@ -105,7 +105,7 @@ public class EditBlogPostTests extends AbstractIntegrationTests {
     }
 
     private MockHttpServletRequestBuilder createEditPostRequest() {
-        MockHttpServletRequestBuilder editPostRequest = post("/admin/blog/" + post.getAdminSlug() + "/edit");
+        MockHttpServletRequestBuilder editPostRequest = put("/admin/blog/" + post.getAdminSlug() + "/edit");
         editPostRequest.param("title", "New Title");
         editPostRequest.param("content", "New Content");
         editPostRequest.param("category", PostCategory.NEWS_AND_EVENTS.name());

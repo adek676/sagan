@@ -117,7 +117,7 @@ class BlogAdminController {
         }
     }
 
-    @RequestMapping(value = "/{postId:[0-9]+}{slug:.*}/edit", method = POST)
+    @RequestMapping(value = "/{postId:[0-9]+}{slug:.*}/edit", method = PUT)
     public String updatePost(@PathVariable Long postId, @Valid PostForm postForm, BindingResult bindingResult,
                              Model model) {
         Post post = service.getPost(postId);
